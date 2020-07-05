@@ -9,40 +9,51 @@ body{
     font-family: 'Lobster', cursive;
 }
 
+#wrapper {
+    background-color: white;
+    border-shadow: 10px 10px;
+}
+
 header{
-    background-color: gainsboro;
     padding: 10px 10px;
 
 }
 
-header h1{
-    
+header h1 {
+    text-decoration: none;
     text-align: center;
-    font-size: 36px;
+    font-size: 46px;
     margin-top: 20px;
 }
-header a{
+
+header a {
     text-decoration: none;
     color: black;
 }
-nav{
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto  ;
-}
-nav a{
 
-    display: block;
-    float: left;
-    width: 25%;
+.nav a{
     color:black;
     text-align: center;
     text-decoration: none;
-    background-color: gainsboro;
     padding: 15px 30px;
     font-size: 24px;
     opacity: 0.5;
 }
+
 a.menu:hover{
     opacity: 0.9;
+}
+
+#slajder img {
+    position: relative;
+    width: 100%;
+}
+
+#footer {
+    width: 100%;
+    background-color: black;
+}
+
+.footer-block {
+    margin: 20px 0;
 }
