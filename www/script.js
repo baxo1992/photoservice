@@ -20,7 +20,7 @@ function schowaj()
 function zmienslajd()
 {
     numer++; if (numer>5)numer=1;
-    var plik = "<img src=\"img/0"+numer+".jpg\"/>";
+    var plik = "<img src=\"www/img/0"+numer+".jpg\"/>";
     document.getElementById("slajder").innerHTML = plik;
     $("#slajder").fadeIn(500);
 
