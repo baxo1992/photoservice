@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 from users.models import User
 
 # Create your models here.
@@ -29,7 +29,7 @@ class News(models.Model):
     # Tabela (model) z wszystkimi newsami
     title = models.CharField(max_length=40)
     body = models.TextField(null=False, blank=False)
-    publication_date = models.DateTimeField(auto_now_add=True)
+    publication_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return {self.title}
+        return self.title

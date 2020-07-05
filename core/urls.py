@@ -18,14 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from users.models import User
-from web.models import Session, Reservation, News
 
-
-admin.site.register(User)
-admin.site.register(Session)
-admin.site.register(Reservation)
-admin.site.register(News)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
