@@ -17,57 +17,68 @@
     <script src="{% static 'script.js' %}"></script>
 </head>
 <body onload="zmienslajd()">
+<!-- Web Top + Nav -->
 <div id="wrapper">
-        <header>
-            <h1><a href="index.html">Photo Service</a></h1>
-        </header>
+    <header>
+        <h1><a href="index.html">Photo Service</a></h1>
+    </header>
+    <div class="container-fluid">
 
-<!--            <nav>-->
-<!--                <a class="menu" href="#">Sesje ciążowe</a>-->
-<!--                <a class="menu" href="#">Sesje rodzinne</a>-->
-<!--                <a class="menu" href="#">Sesje ślubne</a>-->
-<!--                <a class="menu" href="#">Aktualności</a>-->
-<!--            </nav>-->
-        <div class="container-fluid">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link menu" href="#">Sesje ciążowe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link menu" href="#">Sesje rodzinne</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link menu" href="#">Sesje ślubne</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link menu" href="#">Aktualności</a>
+          </li>
+        </ul>
+    </div>
+</div>
+<!-- END -->
 
-            <ul class="nav justify-content-center">
-              <li class="nav-item">
-                <a class="nav-link menu" href="#">Sesje ciążowe</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link menu" href="#">Sesje rodzinne</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link menu" href="#">Sesje ślubne</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link menu" href="#">Aktualności</a>
-              </li>
-            </ul>
+<!-- Slider -->
+<div class="container mt-2">
+    <div class="col-12">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <!--          <ol class="carousel-indicators">-->
+    <!--            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
+    <!--            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
+    <!--            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
+    <!--          </ol>-->
+              <div class="carousel-inner">
+                <div id="slajder">
+              </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="container mt-4">
-    <div class="jumbotron">
-<!--        <div class="col-12 col-md-12 col-sm-12">-->
-<!--            <span onclick="ustawslajd(1)" style="cursor:pointer;">[1]</span>-->
-<!--            <span onclick="ustawslajd(2)" style="cursor:pointer;">[2]</span>-->
-<!--            <span onclick="ustawslajd(3)" style="cursor:pointer;">[3]</span>-->
-<!--            <span onclick="ustawslajd(4)" style="cursor:pointer;">[4]</span>-->
-<!--            <span onclick="ustawslajd(5)" style="cursor:pointer;">[5]</span>-->
-<!--        </div>-->
-        <div id="slajder">
+<!-- END -->
 
+<!-- Web Content Django -->
+<div class="container mt-5">
+    <div class="main">
+        <h1>Main Content</h1>
+        {% block content %}
+        {% endblock %}
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque consectetur eveniet fuga, fugit ipsum magnam odit quasi sit. Ab obcaecati veritatis voluptates?</p>
     </div>
 </div>
-</div>
-        <!-- Footer -->
+<!-- END -->
+
+
+<!-- Footer -->
 <div id="footer">
     <div class="container">
-        <p class="footer-block">Place sticky footer content here.</p>
+        <p class="footer-block">FOOTER CONTENT.</p>
     </div>
 </div>
-
+<!-- END -->
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
