@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Lemonada:wght@300&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body{
-    background-color: gainsboro;
-    font-family: 'Lobster', cursive;
+    background-color: #cecece;
 }
 
 #wrapper {
+    font-family: 'Lobster', cursive;
     background-color: white;
     border-shadow: 10px 10px;
 }
@@ -44,16 +45,22 @@ a.menu:hover{
     opacity: 0.9;
 }
 
-#slajder img {
+#slajder img{
     position: relative;
-    width: 100%;
+    width: 1024px;
+    height: 683px;
+
+}
+.main {
+    font-family: 'Lemonada', cursive;
 }
 
 #footer {
     width: 100%;
-    background-color: black;
+    background-color: white;
 }
 
 .footer-block {
     margin: 20px 0;
+    width: 100%;
 }
