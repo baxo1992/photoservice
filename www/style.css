@@ -12,7 +12,7 @@ body{
 #wrapper {
     font-family: 'Lobster', cursive;
     background-color: white;
-    border-shadow: 10px 10px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.04);
 }
 
 header{
