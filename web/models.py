@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from users.models import User
 
+
 # Create your models here.
 
 
@@ -33,3 +34,13 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Photos(models.Model):
+    # Tabela (model) z wszystkimi zdjęciami, połączona z tabelą Reservation
+    reservation = models.ForeignKey(Reservation, on_delete=models.DO_NOTHING)
+    file = models.FileField(upload_to='photos/')
+    upload_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.reservation
