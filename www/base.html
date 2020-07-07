@@ -24,8 +24,21 @@
 <!-- Web Top + Nav -->
     <div id="wrapper">
         <div class="container top-nav">
-          <a class="menu" href="#">Rejestracja</a>
-          <a class="menu" href="{% url 'login' %}">Login</a>
+            <div class="dropright">
+                {% if user.is_authenticated %}
+                <a class="dropdown dropdown-toggle menu" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Witaj, {{ user.username }}
+                  </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">Profil</a>
+                    <a class="dropdown-item" href="#">Paczka do Pobrania</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                  </div>
+                {% else %}
+                    <a class="menu" href="#">Rejestracja</a>
+                    <a class="menu" href="{% url 'login' %}">Login</a>
+                {% endif %}
+            </div>
         </div>
         <header>
             <h1><a href="{% url 'home' %}">Photo Service</a></h1>
