@@ -53,6 +53,7 @@ a.menu:hover{
 }
 .main {
     font-family: 'Lemonada', cursive;
+    text-align:center;
 }
 
 #footer {
@@ -63,6 +64,14 @@ a.menu:hover{
 .footer-block {
     margin: 20px 0;
     width: 100%;
+    padding:20px 20px;
+    font-size: 24px;
+    text-align:center;
+    font-family: 'Lemonada', cursive;
+}
+.container a{
+    text-decoration:none;
+    color: black;
 }
 
 @media only screen and (max-width: 600px) {
