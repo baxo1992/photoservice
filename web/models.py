@@ -39,6 +39,7 @@ class News(models.Model):
 class Photos(models.Model):
     # Tabela (model) z wszystkimi zdjęciami, połączona z tabelą Reservation
     reservation = models.ForeignKey(Reservation, on_delete=models.DO_NOTHING)
+    description = models.TextField()
     file = models.FileField(upload_to='photos/')
     upload_date = models.DateTimeField(auto_now_add=True)
 

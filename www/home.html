@@ -11,8 +11,12 @@
                 <div class="carousel-inner">
                 <div id="slajder">
               </div>
-        <h1>Main Content</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque consectetur eveniet fuga, fugit ipsum magnam odit quasi sit. Ab obcaecati veritatis voluptates?</p>
+        <h1>News</h1>
+        {% for post in posts %}
+                    {{ post.title }}
+                    {{ post.body }}
+                    {{ post.publication_date }}
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
