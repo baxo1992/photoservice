@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,64 +10,74 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static '/static/css/style.css' %}">
-    <title>Photo Service</title>
+
+    <title>
+        {% if title %}
+        {{ title }}
+        {% else %}
+        Photo Service
+        {% endif %}
+    </title>
 
 </head>
 <body onload="zmienslajd()">
 <!-- Web Top + Nav -->
-<div id="wrapper">
-    <div class="container top-nav">
-      <a class="menu" href="#">Rejestracja</a>
-      <a class="menu" href="#">Login</a>
-    </div>
-    <header>
-        <h1><a href="index.html">Photo Service</a></h1>
-        <div class="burger">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
+    <div id="wrapper">
+        <div class="container top-nav">
+          <a class="menu" href="#">Rejestracja</a>
+          <a class="menu" href="{% url 'login' %}">Login</a>
         </div>
-    </header>
-    <div class="container-fluid">
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-              <a class="nav-link menu" href="#">Sesja Ślubna</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link menu" href="#">Sesja Rodzinna</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link menu" href="#">Sesja Ciążowa</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link menu" href="#">Aktualności</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link menu" href="#">Rezerwacja</a>
-            </li>
-          </ul>
+        <header>
+            <h1><a href="{% url 'home' %}">Photo Service</a></h1>
+            <div class="burger">
+              <div class="line1"></div>
+              <div class="line2"></div>
+              <div class="line3"></div>
+            </div>
+        </header>
+        <div class="container-fluid">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link menu" href="{% url 'sessionW' %}">Sesja Ślubna</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link menu" href="{% url 'sessionF' %}">Sesja Rodzinna</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link menu" href="{% url 'sessionP' %}">Sesja Ciążowa</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link menu" href="{% url 'about' %}">O mnie</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link menu" href="{% url 'reservation' %}">Rezerwacja</a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 <!-- END -->
 
 <!-- Slider -->
 
 <!-- END -->
-{% block content %}
-{% endblock %}
 <!-- Web Content Django -->
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
 <!-- END -->
 
 <!-- Footer -->
-<div id="footer">
-    <div class="container">
-        <p class="footer-block">USŁUGI FOTOGRAFICZNE &copy 2020! WIECEJ INFO <a href="omnie.html">TUTAJ</a></p>
+    <div id="footer">
+        <div class="container">
+            <p class="footer-block">USŁUGI FOTOGRAFICZNE &copy 2020! WIECEJ INFO <a href="omnie.html">TUTAJ</a></p>
+        </div>
     </div>
-</div>
 <!-- END -->
 
 <!-- JavaScript -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="{% static '/static/js/main.js' %}"></script>
