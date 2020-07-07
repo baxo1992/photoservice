@@ -46,6 +46,7 @@ a.menu:hover{
 }
 
 #slajder img{
+    border-radius: 10px;
     position: relative;
     width: 1024px;
     height: 680px;

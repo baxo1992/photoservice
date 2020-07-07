@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'web.apps.WebConfig',
     'bootstrap4',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,6 @@ STATIC_URL = '/www/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "www"),
 ]
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'

@@ -10,7 +10,7 @@ from users.forms import (
 # Create your views here.
 class SubmittableLoginView(LoginView):
     form_class = SubmittableAuthenticationForm
-    template_name = 'form.html'
+    template_name = 'registration/login.html'
 
 
 class SubmittablePasswordChangeView(PasswordChangeView):
