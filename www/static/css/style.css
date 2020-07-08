@@ -177,3 +177,6 @@ a.menu:hover{
     transform: rotate(45deg) translate(-5px,-6px);
 }
 
+@media only screen and (min-width: 768px) {
+
+}

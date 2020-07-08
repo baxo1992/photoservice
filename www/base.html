@@ -70,21 +70,19 @@
     </div>
 <!-- END -->
 
-<!-- Slider -->
+<!-- Django Messages System -->
 
 <!-- END -->
 <!-- Web Content Django -->
-    <div class="container">
-        {% block content %}
-        {% endblock %}
-    </div>
-
+{% block content %}
+{% endblock %}
 <!-- END -->
+
 
 <!-- Footer -->
     <div id="footer">
         <div class="container">
-            <p class="footer-block">USŁUGI FOTOGRAFICZNE &copy 2020! WIECEJ INFO <a href="omnie.html">TUTAJ</a></p>
+            <p class="footer-block">USŁUGI FOTOGRAFICZNE &copy 2020! WIECEJ INFO <a href="{% url 'about' %}">TUTAJ</a></p>
         </div>
     </div>
 <!-- END -->
@@ -96,6 +94,6 @@
     <script src="{% static '/static/js/main.js' %}"></script>
     <script src="{% static '/static/js/nav.js' %}"></script>
 
-<!-- END -->
+
 </body>
 </html>
