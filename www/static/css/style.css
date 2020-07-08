@@ -150,7 +150,10 @@ a.menu:hover{
         height: 300px;
     }
 }
-
+.blurMe{
+    -webkit-filter: blur(4px);
+            filter: blur(4px);
+  }
 .nav-active{
     transform: translateX(0%);
 }
