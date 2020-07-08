@@ -1,7 +1,43 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-    <div class="main mt-5">
+<div class="main mt-5">
+
+    <div id="main">
         <h1>Sesja Ślubna</h1>
-        <p></p>
+
+        <div class="wedding">
+            <img src="{% static 'static/gallery/wedding/wedding1.jpg' %}" width="400" height="400" alt="wedding1">
+        </div>
+
+        <div class="wedding">
+            <img src="{% static 'static/gallery/wedding/wedding2.jpg' %}" width="400" height="400" alt="wedding2">
+        </div>
+
+        <div class="wedding">
+            <img src="{% static 'static/gallery/wedding/wedding3.jpg' %}" width="400" height="400" alt="wedding3">
+        </div>
+
+        <div style="clear: both;"></div>
+        <div class="wedding">
+            <img src="{% static 'static/gallery/wedding/wedding4.jpg' %}" width="400" height="400" alt="wedding4">
+        </div>
+
+        <div class="wedding">
+            <img src="{% static 'static/gallery/wedding/wedding5.jpg' %}" width="400" height="400" alt="wedding5">
+        </div>
+
+        <div class="wedding">
+            <img src="{% static 'static/gallery/wedding/wedding6.jpg' %}" width="400" height="400" alt="wedding6">
+        </div>
+        <div style="clear: both;"></div>
+        <div id="description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam ducimus esse harum maiores non
+                obcaecati pariatur quam recusandae, unde? A, accusamus adipisci architecto deleniti dolor earum
+                explicabo ipsum molestiae nostrum nulla numquam quae unde voluptate? Consequuntur cumque dignissimos
+                dolorem explicabo incidunt itaque, libero natus odit provident quas sunt suscipit unde.</p>
+        </div>
     </div>
+</div>
+
 {% endblock %}

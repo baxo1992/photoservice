@@ -1,7 +1,45 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="main mt-5">
+{% load static %}
+<div class="main mt-5">
+
+    <div id="main">
         <h1>Sesja Rodzinna</h1>
-        <p></p>
+
+        <div class="wedding">
+            <img src="{% static 'static/gallery/family/family1.jpg' %}" width="400" height="400" alt="family1">
+        </div>
+
+        <div class="wedding">
+            <img src="{% static 'static/gallery/family/family2.jpg' %}" width="400" height="400" alt="family2">
+        </div>
+
+        <div class="wedding">
+            <img src="{% static 'static/gallery/family/family3.jpeg' %}" width="400" height="400" alt="family3">
+        </div>
+
+        <div style="clear: both;"></div>
+
+        <div class="wedding">
+            <img src="{% static 'static/gallery/family/family4.jpg' %}" width="400" height="400" alt="family4">
+        </div>
+
+        <div class="wedding">
+            <img src="{% static 'static/gallery/family/family5.jpeg' %}" width="400" height="400" alt="family5">
+        </div>
+
+        <div class="wedding">
+            <img src="{% static 'static/gallery/family/family6.jpg' %}" width="400" height="400" alt="family6">
+        </div>
+        <div style="clear: both;"></div>
+
+        <div id="description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam ducimus esse harum maiores non
+                obcaecati pariatur quam recusandae, unde? A, accusamus adipisci architecto deleniti dolor earum
+                explicabo ipsum molestiae nostrum nulla numquam quae unde voluptate? Consequuntur cumque dignissimos
+                dolorem explicabo incidunt itaque, libero natus odit provident quas sunt suscipit unde.</p>
+        </div>
     </div>
+
+</div>
 {% endblock %}
