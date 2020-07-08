@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from users.models import User
+from users.models import Profile
 
 
 # Create your models here.
@@ -18,7 +18,7 @@ class Session(models.Model):
 
 class Reservation(models.Model):
     # Tabela (model) z wszystkimi rezerwacjami, połączona z konkretnym użytkownikiem oraz konkretnym typem sesji
-    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(Profile, on_delete=models.DO_NOTHING)
     session_type = models.ForeignKey(Session, on_delete=models.DO_NOTHING)
     reservation_date = models.DateTimeField()
 
