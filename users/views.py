@@ -17,8 +17,8 @@ class SubmittableLoginView(LoginView):
 
 class SubmittablePasswordChangeView(PasswordChangeView):
     form_class = SubmitablePasswordChangeForm
-    template_name = 'form.html'
-    success_url = reverse_lazy('index')
+    template_name = 'registration/login.html'
+    success_url = reverse_lazy('home')
 
 
 def register(request):
