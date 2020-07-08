@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-    <div class="main mt-5">
+<div class="main mt-5">
+    <div id="main">
         <h1>Witaj tu Romek Atomek - twoj fotograf!</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque consectetur eveniet fuga, fugit ipsum magnam odit quasi sit. Ab obcaecati veritatis voluptates?</p>
+        <div id="camera">
+            <img src="{% static 'static/gallery/camera.jpg' %}" alt="camera">
+        </div>
+        <div id="description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam ducimus esse harum maiores non
+                obcaecati pariatur quam recusandae, unde? A, accusamus adipisci architecto deleniti dolor earum
+                explicabo ipsum molestiae nostrum nulla numquam quae unde voluptate? Consequuntur cumque dignissimos
+                dolorem explicabo incidunt itaque, libero natus odit provident quas sunt suscipit unde.</p>
+        </div>
     </div>
+</div>
 {% endblock %}
