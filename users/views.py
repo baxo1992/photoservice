@@ -21,7 +21,7 @@ class SubmittablePasswordChangeView(SuccessMessageMixin, PasswordChangeView):
     form_class = SubmitablePasswordChangeForm
     template_name = 'form.html'
     success_url = reverse_lazy('home')
-    success_message = 'Hasło zostało zmienione poprawnie !'
+    success_message = 'Hasło zostało zmienione poprawnie!'
 
 
 def register(request):
@@ -34,5 +34,5 @@ def register(request):
             return redirect('login')
     else:
         form = UserRegisterForm()
-        messages.error(request, 'Konto niezostało utworzone')
+
     return render(request, 'registration/registration.html', {'form': form})
