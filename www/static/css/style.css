@@ -8,6 +8,7 @@ body{
     margin: 0px;
     padding: 0px;
     background-color: rgb(255, 255, 255);
+
 }
 
 #wrapper {
@@ -109,12 +110,17 @@ a.menu:hover{
 }
 
 .wedding{
-
+    font-family: 'Lobster', cursive;
     padding:10px;
     display: inline-block;
 }
 .wedding img{
     border-radius: 35%;
+    margin-bottom: 20px;
+}
+.wedding p a{
+    text-decoration: none;
+    color: black;
 }
 
 #description{
@@ -129,6 +135,24 @@ a.menu:hover{
     font-size: 20px;
 
 }
+#reservation{
+    width: 1150px;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    padding-bottom: 100px;
+
+}
+#opisy{
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    padding: 40px 40px;
+    font-style: italic;
+    font-size: 18px;
+}
+#opisy p{
+    border: 2px solid lightblue;
+    padding: 20px 20px;
+}
 /* @media only screen and (max-width: 600px) {
     #slajder img {
         width: 100%;
@@ -137,6 +161,8 @@ a.menu:hover{
     }
 
 } */
+
+
 .dms-calendar-booking .mbsc-cal-txt.mbsc-hover:before {
     background: none;
 }
