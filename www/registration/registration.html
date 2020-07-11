@@ -1,12 +1,76 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="container">
-    <form method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button class="btn btn-primary" type="submit">Register</button>
-    </form>
-</div>
+<div class="container mt-5">
+        <div class="row">
 
+            <div class="col-md-8 offset-md-2">
+                <form role="form" method="POST">
+
+                    <legend class="text-center">Rejestracja</legend>
+
+                    <fieldset>
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                    </fieldset>
+                        <div class="form-group">
+                            <div class="col-md-8 offset-md-4">
+                                <input type="submit" class="btn btn-primary" value="Zarejestruj Konto">
+                                </input>
+                            </div>
+                            <div class="col-md-8 offset-md-2">
+                                <p class="link">Masz już konto?<a href="{% url 'login' %}"> Zaloguj się</a></p>
+                            </div>
+                        </div>
+
+                    <fieldset>
+                </form>
+            </div>
+
+        </div>
+    </div>
+<style>
+.card {
+  position: relative;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+    label {
+        text: center;
+        font-size: 16px;
+        justify-content: center;
+        padding: 5px 0px 0px 20px;
+    }
+
+    input {
+        width: 80%;
+
+    }
+
+    .controls {
+    text-align: center;
+    padding: 5px;
+    }
+    .btn {
+    border-radius: 15px;
+    width: 30%;
+    padding: 5px;
+    margin-bottom: 10px;
+    justify-content: center;
+    }
+.link {
+    font-size: 12px;
+    text-align: center;
+    }
+</style>
 {% endblock %}

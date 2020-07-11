@@ -8,29 +8,20 @@
                 <form method="post">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <div id="log">
-                        <input class="btn btn-primary center mt-3" type="submit" value="Login" class="btn btn-primary">
+                    <div class="col-md-6 offset-md-3">
+                        <input class="btn btn-primary btn-lg btn-block mt-3" type="submit" value="Zaloguj">
                     </div>
                 </form>
+                <p class="link">Nie masz konta?<a href="{% url 'register' %}"> Zarejestruj się</a></p>
             </div>
         </div>
     </div>
 </div>
 <style>
 .card {
-  height: 300px;
   position: relative;
   border-radius: 15px;
   padding: 15px;
-}
-
-.center {
-  margin: 0;
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 
     label {
@@ -55,6 +46,10 @@
     padding: 5px;
     margin-bottom: 10px;
     justify-content: center;
+    }
+    .link {
+    font-size: 12px;
+    text-align: center;
     }
 </style>
 {% endblock %}
