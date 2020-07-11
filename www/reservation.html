@@ -2,98 +2,104 @@
 {% block content %}
 {% load static %}
 <div class="container mt-5">
-<div id="reservation">
-    <h1 style="text-align: center;">Rezerwacja</h1>
+    <div id="reservation">
+        <a href="#" class="scrollup"></a>
+        <h1 style="text-align: center;">Rezerwacja</h1>
 
-    <div class="wedding">
-        <img src="{% static 'static/gallery/reservation/wedding1.jpg' %}" width="350" height="350" alt="wedding1">
-        <p>Sesja Ślubna <a href="#opis1">(Opis)</a></p>
-        <p>Czas trwania: 60 min</p>
-        <p>Cena: 300 zł</p>
+        <div class="wedding">
+            <img src="{% static 'static/gallery/reservation/wedding1.jpg' %}" width="350" height="350" alt="wedding1">
+            <p>Sesja Ślubna <a id="link1" href="#description1">(Opis)</a></p>
+            <p>Czas trwania: 60 min</p>
+            <p>Cena: 300 zł</p>
+        </div>
+
+        <div class="wedding">
+            <img src="{% static 'static/gallery/reservation/pregnancy.jpg' %}" width="350" height="350" alt="pregnancy">
+            <p>Sesja ciążowa <a id="link2" href="#description2">(Opis)</a></p>
+            <p>Czas trwania: 60 min</p>
+            <p>Cena: 300 zł</p>
+        </div>
+
+        <div class="wedding">
+            <img src="{% static 'static/gallery/reservation/family.jpg' %}" width="350" height="350" alt="family">
+            <p>Sesja rodzinna <a id="link3" href="#description3">(Opis)</a></p>
+            <p>Czas trwania: 60 min</p>
+            <p>Cena: 300 zł</p>
+        </div>
+        <div style="clear: both;"></div>
     </div>
 
-    <div class="wedding">
-        <img src="{% static 'static/gallery/reservation/pregnancy.jpg' %}" width="350" height="350" alt="pregnancy">
-        <p>Sesja ciążowa <a href="#opis2">(Opis)</a></p>
-        <p>Czas trwania: 60 min</p>
-        <p>Cena: 300 zł</p>
+
+    <div id="description">
+
+        <h2 id="description1">Sesja Ślubna</h2>
+
+        <p>
+            Czas trwania: ok. 60 min <br/>
+
+            Cena: 250 PLN<br/>
+
+            Usługa obejmuje:<br/>
+
+            10 odbitek na wysokiej jakości jedwabnym papierze w wybranym przez Państwa formacie.<br/>
+
+            10 ujęć w wersji cyfrowej.<br/>
+
+            Dodatkowe ujęcia w cenie 20 zł/ szt. <br/><br/>
+
+            W związku z koniecznością wcześniejszego ustalenia stylizacji do sesji fotograficznej, proszę o
+            przygotowanie
+            odpowiednich ubrań. Ważne jest, aby były to stroje spójne, bez nadruków i logotypów. W swoim studio posiadam
+            kilka sukni ciążowych w uniwersalnym rozmiarze, z których można skorzystać. Jeśli nie mają Państwo pomysłu,
+            proszę zainspirować się moim portfolio (strona WWW, facebook, instagram), lub skontaktować ze mną
+            telefonicznie.
+            Postaram się coś doradzić.
+        </p>
+
+        <h2 id="description2">Sesja ciążowa</h2>
+        <p >Czas trwania: ok. 60 min <br/>
+
+            Cena: 300 PLN<br/>
+
+            Usługa obejmuje:<br/>
+
+            10 odbitek na wysokiej jakości jedwabnym papierze w wybranym przez Państwa formacie.<br/>
+
+            10 ujęć w wersji cyfrowej.<br/>
+
+            Dodatkowe ujęcia w cenie 20 zł/ szt. <br/><br/>
+
+            W związku z koniecznością wcześniejszego ustalenia stylizacji do sesji fotograficznej, proszę o
+            przygotowanie
+            odpowiednich ubrań. Ważne jest, aby były to stroje spójne, bez nadruków i logotypów. W swoim studio posiadam
+            kilka sukni ciążowych w uniwersalnym rozmiarze, z których można skorzystać. Jeśli nie mają Państwo pomysłu,
+            proszę zainspirować się moim portfolio (strona WWW, facebook, instagram), lub skontaktować ze mną
+            telefonicznie.
+            Postaram się coś doradzić.
+        </p>
+
+        <h2 id="description3">Sesja rodzinna</h2>
+        <p>Czas trwania: ok. 60 min <br/>
+
+            Cena: 250 PLN<br/>
+
+            Usługa obejmuje:<br/>
+
+            10 odbitek na wysokiej jakości jedwabnym papierze w wybranym przez Państwa formacie.<br/>
+
+            10 ujęć w wersji cyfrowej.<br/>
+
+            Dodatkowe ujęcia w cenie 20 zł/ szt. <br/><br/>
+
+            W związku z koniecznością wcześniejszego ustalenia stylizacji do sesji fotograficznej, proszę o
+            przygotowanie
+            odpowiednich ubrań. Ważne jest, aby były to stroje spójne, bez nadruków i logotypów. W swoim studio posiadam
+            kilka sukni ciążowych w uniwersalnym rozmiarze, z których można skorzystać. Jeśli nie mają Państwo pomysłu,
+            proszę zainspirować się moim portfolio (strona WWW, facebook, instagram), lub skontaktować ze mną
+            telefonicznie.
+            Postaram się coś doradzić.
+        </p>
     </div>
-
-    <div class="wedding">
-        <img src="{% static 'static/gallery/reservation/family.jpg' %}" width="350" height="350" alt="family">
-        <p>Sesja rodzinna <a href="#opis3">(Opis)</a></p>
-        <p>Czas trwania: 60 min</p>
-        <p>Cena: 300 zł</p>
-    </div>
-    <div style="clear: both;"></div>
-</div>
-
-
-<div id="opisy">
-
-    <h2>Sesja Ślubna</h2>
-    <p id="opis1"><br/>
-
-        Czas trwania: ok. 60 min <br/>
-
-        Cena: 250 PLN<br/>
-
-        Usługa obejmuje:<br/>
-
-        10 odbitek na wysokiej jakości jedwabnym papierze w wybranym przez Państwa formacie.<br/>
-
-        10 ujęć w wersji cyfrowej.<br/>
-
-        Dodatkowe ujęcia w cenie 20 zł/ szt. <br/><br/>
-
-        W związku z koniecznością wcześniejszego ustalenia stylizacji do sesji fotograficznej, proszę o przygotowanie
-        odpowiednich ubrań. Ważne jest, aby były to stroje spójne, bez nadruków i logotypów. W swoim studio posiadam
-        kilka sukni ciążowych w uniwersalnym rozmiarze, z których można skorzystać. Jeśli nie mają Państwo pomysłu,
-        proszę zainspirować się moim portfolio (strona WWW, facebook, instagram), lub skontaktować ze mną telefonicznie.
-        Postaram się coś doradzić.
-
-    </p>
-
-    <h2>Sesja ciążowa</h2>
-    <p id="opis2">Czas trwania: ok. 60 min <br/>
-
-        Cena: 300 PLN<br/>
-
-        Usługa obejmuje:<br/>
-
-        10 odbitek na wysokiej jakości jedwabnym papierze w wybranym przez Państwa formacie.<br/>
-
-        10 ujęć w wersji cyfrowej.<br/>
-
-        Dodatkowe ujęcia w cenie 20 zł/ szt. <br/><br/>
-
-        W związku z koniecznością wcześniejszego ustalenia stylizacji do sesji fotograficznej, proszę o przygotowanie
-        odpowiednich ubrań. Ważne jest, aby były to stroje spójne, bez nadruków i logotypów. W swoim studio posiadam
-        kilka sukni ciążowych w uniwersalnym rozmiarze, z których można skorzystać. Jeśli nie mają Państwo pomysłu,
-        proszę zainspirować się moim portfolio (strona WWW, facebook, instagram), lub skontaktować ze mną telefonicznie.
-        Postaram się coś doradzić.
-    </p>
-
-    <h2>Sesja rodzinna</h2>
-    <p id="opis3">Czas trwania: ok. 60 min <br/>
-
-        Cena: 250 PLN<br/>
-
-        Usługa obejmuje:<br/>
-
-        10 odbitek na wysokiej jakości jedwabnym papierze w wybranym przez Państwa formacie.<br/>
-
-        10 ujęć w wersji cyfrowej.<br/>
-
-        Dodatkowe ujęcia w cenie 20 zł/ szt. <br/><br/>
-
-        W związku z koniecznością wcześniejszego ustalenia stylizacji do sesji fotograficznej, proszę o przygotowanie
-        odpowiednich ubrań. Ważne jest, aby były to stroje spójne, bez nadruków i logotypów. W swoim studio posiadam
-        kilka sukni ciążowych w uniwersalnym rozmiarze, z których można skorzystać. Jeśli nie mają Państwo pomysłu,
-        proszę zainspirować się moim portfolio (strona WWW, facebook, instagram), lub skontaktować ze mną telefonicznie.
-        Postaram się coś doradzić.
-    </p>
-</div>
 
 </div>
 
