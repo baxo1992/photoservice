@@ -44,7 +44,7 @@ def register(request):
 
 def view_profile(request):
     args = {'user': request.user}
-    return render(request, 'www/profile.html')
+    return render(request, 'profile.html')
 
 
 def edit_profile(request):
@@ -53,8 +53,8 @@ def edit_profile(request):
 
         if form.is_valid():
             form.save()
-            return redirect('/www/profile')
+            return redirect('profile')
     else:
         form = EditProfileForm(instance=request.user)
         args = {'form': form}
-        return render(request, 'www/edit_profile.html', args)
+        return render(request, 'edit_profile.html', args)
