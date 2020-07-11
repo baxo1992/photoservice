@@ -1,55 +1,16 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="main">
-    <div class="container">
-        <div class="col-md-6 offset-md-3 mt-5">
-            <div class="card">
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <div class="col-md-6 offset-md-3">
-                        <input class="btn btn-primary btn-lg btn-block mt-3" type="submit" value="Zaloguj">
-                    </div>
-                </form>
-                <p class="link">Nie masz konta?<a href="{% url 'register' %}"> Zarejestruj się</a></p>
-            </div>
+<div class="main mt-5">
+    <div id="container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <div id="log">
+            <input class="btn btn-primary mt-3" type="submit" value="Login" class="btn btn-primary">
         </div>
-    </div>
+            </div>
+    </form>
 </div>
-<style>
-.card {
-  position: relative;
-  border-radius: 15px;
-  padding: 15px;
-}
-
-    label {
-        text: center;
-        font-size: 16px;
-        justify-content: center;
-        padding: 5px 0px 0px 20px;
-    }
-
-    input {
-        width: 80%;
-
-    }
-
-    .controls {
-    text-align: center;
-    padding: 5px;
-    }
-    .btn {
-    border-radius: 15px;
-    width: 30%;
-    padding: 5px;
-    margin-bottom: 10px;
-    justify-content: center;
-    }
-    .link {
-    font-size: 12px;
-    text-align: center;
-    }
-</style>
 {% endblock %}
