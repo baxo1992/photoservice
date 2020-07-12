@@ -34,7 +34,7 @@
                   </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="{% url 'view_profile' %}">Profil</a>
-                    <a class="dropdown-item" href="#">Paczka do Pobrania</a>
+                    <a class="dropdown-item" href="{% url 'download_list' %}">Paczka do Pobrania</a>
                     <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                   </div>
                 {% else %}
