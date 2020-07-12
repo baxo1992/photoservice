@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from django.views.generic import ListView
 from .models import UserFilesUpload
 
 
@@ -68,3 +69,10 @@ def change_password(request):
         form = PasswordChangeForm(user=request.user)
         args = {'form': form}
         return render(request, 'change_password.html', args)
+
+
+class DownloadView(ListView):
+    queryset = UserFilesUpload.objects.all()
+    context_object_name = 'down'
+    fields = ['file']
+    template_name = 'download_list.html'

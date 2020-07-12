@@ -50,3 +50,6 @@ class UserFilesUpload(models.Model):
 
     def __str__(self):
         return str(self.owner)
+
+    def get_absolute_url(self):
+        return reverse('download_list', kwargs={'pk': self.pk})
