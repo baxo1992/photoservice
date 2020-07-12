@@ -1,5 +1,8 @@
 from django.shortcuts import render
-from .models import News
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
+from .models import News, Session
+from .forms import ReservationForm
 
 
 # Widok dla strony Głównej
@@ -31,3 +34,14 @@ def about(request):
 # Widok Rezerwacja
 def reservation(request):
     return render(request, 'reservation.html', {'title': 'Rezerwacja'})
+
+
+class ReservationView(CreateView):
+    title = 'Rezerwacja'
+    template_name = 'reservation.html'
+    form_class = ReservationForm
+    success_url = reverse_lazy('reservation-succes')
+
+# Widok Pomyślnej rezerwacjii
+def reservation_succes(request):
+    return render(request, 'reservation-succes.html', {'title': 'Rezerwacja'})
