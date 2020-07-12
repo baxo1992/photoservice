@@ -1,8 +1,9 @@
 from django.db import models
+from django.utils import timezone
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from PIL import Image
+from django.urls import reverse
 
 
 # Create your models here.
@@ -27,3 +28,25 @@ def create_profile(sender, **kwargs):
 
 
 post_save.connect(create_profile, sender=User)
+
+
+def pic_path(instance, filename):
+    return 'User_files/{0}/{1}/{2}/{3}'.format(instance.owner, instance.session_type, instance.upload_date, filename)
+
+
+class UserFilesUpload(models.Model):
+
+    SESSION_TYPES = (
+        ('sesja ślubna', 'Sesja Ślubna'),
+        ('sesja rodzinna', 'Sesja Rodzinna'),
+        ('sesja ciążowa', 'Sesja Ciążowa'),
+    )
+
+    uploaded_by = models.CharField(default='admin', max_length=30)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    session_type = models.CharField(max_length=30, choices=SESSION_TYPES, default='sesja ślubna')
+    file = models.FileField(upload_to=pic_path, blank=True, null=True)
+    upload_date = models.DateField(default=timezone.now)
+
+    def __str__(self):
+        return str(self.owner)
