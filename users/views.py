@@ -7,6 +7,7 @@ from django.views.generic import ListView
 from .models import UserFilesUpload
 
 
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -72,7 +73,10 @@ def change_password(request):
 
 
 class DownloadView(ListView):
-    queryset = UserFilesUpload.objects.all()
+    model = UserFilesUpload
     context_object_name = 'down'
     fields = ['file']
     template_name = 'profile.html'
+
+    def get_queryset(self):
+        return UserFilesUpload.objects.filter(owner=self.request.user)
