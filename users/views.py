@@ -1,31 +1,11 @@
-from django.contrib.auth.views import LoginView, PasswordChangeView
-from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from django.views.generic import ListView
+from .models import UserFilesUpload
 
-from .forms import UserRegisterForm
-from users.forms import (
-    SubmittableAuthenticationForm,
-    SubmitablePasswordChangeForm,
-    EditProfileForm
-)
-
-
-# Create your views here.
-class SubmittableLoginView(SuccessMessageMixin, LoginView):
-    form_class = SubmittableAuthenticationForm
-    template_name = 'registration/login.html'
-    success_message = 'Zostałeś zalogowany poprawnie!'
-
-
-class SubmittablePasswordChangeView(SuccessMessageMixin, PasswordChangeView):
-    form_class = SubmitablePasswordChangeForm
-    template_name = 'form.html'
-    success_url = reverse_lazy('home')
-    success_message = 'Hasło zostało zmienione poprawnie!'
 
 
 def register(request):
@@ -36,28 +16,42 @@ def register(request):
             username = form.cleaned_data.get('username')
             messages.success(request, f'Konto {username} zostało utworzone poprawnie')
             return redirect('login')
+        else:
+            messages.error(request, 'Konto nie zostało utworzone')
+            return render(request, 'registration/registration.html', {'form': form})
     else:
         form = UserRegisterForm()
 
     return render(request, 'registration/registration.html', {'form': form})
 
 
-def view_profile(request):
-    args = {'user': request.user}
-    return render(request, 'profile.html')
+# def view_profile(request):
+#     args = {'user': request.user}
+#     return render(request, 'profile.html')
 
 
 def edit_profile(request):
     if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=request.user)
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Konto zostało zaktualizowane!')
+            return redirect('view_profile')
 
-        if form.is_valid():
-            form.save()
-            return redirect('profile')
     else:
-        form = EditProfileForm(instance=request.user)
-        args = {'form': form}
-        return render(request, 'edit_profile.html', args)
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+    return render(request, 'edit_profile.html', context)
 
 
 def change_password(request):
@@ -67,10 +61,22 @@ def change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            return redirect('profile')
+            messages.success(request, 'Hasło zostało zmienione!')
+            return redirect('view_profile')
         else:
-            return redirect('user/profile/change-password')
+            messages.error(request, 'Hasło nie zostało zmienione!')
+            return redirect('change_password')
     else:
         form = PasswordChangeForm(user=request.user)
         args = {'form': form}
         return render(request, 'change_password.html', args)
+
+
+class DownloadView(ListView):
+    model = UserFilesUpload
+    context_object_name = 'down'
+    fields = ['file']
+    template_name = 'profile.html'
+
+    def get_queryset(self):
+        return UserFilesUpload.objects.filter(owner=self.request.user)

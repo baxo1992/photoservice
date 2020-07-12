@@ -1,8 +1,8 @@
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm
+from .models import Profile
 from django import forms
 from django.forms import Form
 
@@ -19,23 +19,19 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
 
-class SubmittableAuthenticationForm(SubmittableForm, AuthenticationForm):
-    pass
-
-
-class SubmitablePasswordChangeForm(SubmittableForm, PasswordChangeForm):
-    pass
-
-
-class EditProfileForm(UserChangeForm):
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
 
     class Meta:
         model = User
-        fields = (
-            'email',
-            'first_name',
-            'last_name'
-        )
+        fields = ['email']
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['first_name', 'last_name', 'phone_number', 'email']
+        labels = {'first_name': 'Imię', 'last_name': 'Nazwisko', 'phone_number': 'Numer Telefonu'}
