@@ -2,11 +2,15 @@
 
 {% block content %}
 <div class="container">
-    <h1>Profil Użytkownika {{ user }}</h1>
-    <p>Imię: {{ user.first_name }}</p>
-    <p>Nazwisko: {{ user.last_name }}</p>
-    <p>Email: {{ user.email }}</p>
-    <p>Numer telefonu: {{ user.phone_number }}</p>
-    <p>Moje zdjęcia: </p>
+    <div id="container-profile">
+        <h1 class="profile_info">Profil Użytkownika {{ user }}</h1>
+        <p>Imię: {{ user.first_name }}</p>
+        <p>Nazwisko: {{ user.last_name }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Numer telefonu: {{ user.phone_number }}</p>
+        <p>Moje zdjęcia: </p>
+        <a class="btn btn-primary" href="{% url 'edit_profile' %}" role="button">Edytuj Profil</a>
+        <a class="btn btn-primary" href="{% url 'change_password' %}" role="button">Zmien Haslo</a>
+    </div>
 </div>
 {% endblock %}

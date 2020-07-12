@@ -2,11 +2,21 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container">
-    <form method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button class="btn btn-primary" type="submit">Register</button>
-    </form>
+    <div id="container-register">
+        <form role="form" method="POST">
+            <legend class="text-center">Rejestracja</legend>
+            <fieldset>
+                {% csrf_token %}
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <div id="log">
+                    <input type="submit" class="btn btn-primary" value="Zarejestruj Konto">
+                    </input>
+                </div>
+                <p class="link">Masz już konto?<a href="{% url 'login' %}"> Zaloguj się</a></p>
+            </div>
+        </form>
+    </div>
 </div>
-
 {% endblock %}
