@@ -24,9 +24,9 @@ def register(request):
     return render(request, 'registration/registration.html', {'form': form})
 
 
-def view_profile(request):
-    args = {'user': request.user}
-    return render(request, 'profile.html')
+# def view_profile(request):
+#     args = {'user': request.user}
+#     return render(request, 'profile.html')
 
 
 def edit_profile(request):
@@ -63,7 +63,7 @@ def change_password(request):
             messages.success(request, 'Hasło zostało zmienione!')
             return redirect('view_profile')
         else:
-            messages.success(request, 'Hasło nie zostało zmienione!')
+            messages.error(request, 'Hasło nie zostało zmienione!')
             return redirect('change_password')
     else:
         form = PasswordChangeForm(user=request.user)
@@ -75,4 +75,4 @@ class DownloadView(ListView):
     queryset = UserFilesUpload.objects.all()
     context_object_name = 'down'
     fields = ['file']
-    template_name = 'download_list.html'
+    template_name = 'profile.html'
