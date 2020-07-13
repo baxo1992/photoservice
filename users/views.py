@@ -40,7 +40,7 @@ def edit_profile(request):
             u_form.save()
             p_form.save()
             messages.success(request, f'Konto zostało zaktualizowane!')
-            return redirect('view_profile')
+            return redirect('download')
 
     else:
         u_form = UserUpdateForm(instance=request.user)
@@ -62,7 +62,7 @@ def change_password(request):
             form.save()
             update_session_auth_hash(request, form.user)
             messages.success(request, 'Hasło zostało zmienione!')
-            return redirect('view_profile')
+            return redirect('download')
         else:
             messages.error(request, 'Hasło nie zostało zmienione!')
             return redirect('change_password')
