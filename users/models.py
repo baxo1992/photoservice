@@ -19,7 +19,7 @@ class Profile(models.Model):
     phone_number = models.CharField(validators=[phone_regex], max_length=15, blank=True)
 
     def __str__(self):
-        return f'{self.user.username} Profile'
+        return f'{self.user.username}'
 
 
 def create_profile(sender, **kwargs):
