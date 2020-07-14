@@ -16,10 +16,10 @@ def past_date_field(value):
 
 
 class ReservationForm(forms.ModelForm):
-    reservation_date = forms.DateTimeField(input_formats=['%d-%m-%Y %H:%M'], label='Termin sesji', help_text='(Format: dd-mm-yyyy HH:MM)')
+    reservation_date = forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M'], label='Termin sesji', help_text='(Format: dd/mm/yyyy HH:MM)')
 
     class Meta:
         model = Reservation
         fields = '__all__'
         # fields = ['session_type', 'reservation_date']
-        labels = {'session_type': 'Typ sesji'}
+        labels = {'session_type': 'Typ sesji', 'user': 'Użytkownik'}

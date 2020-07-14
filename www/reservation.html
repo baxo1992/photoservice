@@ -4,6 +4,7 @@
 {% load crispy_forms_tags %}
 
     <div class="container mt-5">
+    <div class="col-sm-12">
         <div id="reservation">
             <a href="#" class="scrollup"></a>
             <h1 style="text-align: center;">Rezerwacja</h1>
@@ -33,6 +34,7 @@
             <div style="clear: both;"></div>
 
             <div class="main mt-5">
+                <div id="container-profile">
                 <div id="main">
                     <h1>Rezerwacja Terminu</h1>
                     {% if user.is_authenticated %}
@@ -40,11 +42,11 @@
                         <form role="form" method="POST">
                             <fieldset>
                                 {% csrf_token %}
-                                {{ form.as_p }}
+                                {{ form|crispy }}
                             </fieldset>
                             <div class="form-group">
                                 <div id="log">
-                                    <input type="submit" class="btn btn-success" value="Zazrezerwuj">
+                                    <input type="submit" class="btn btn-primary" value="Zazrezerwuj">
                                     </input>
                                 </div>
                             </div>
@@ -63,6 +65,8 @@
                     {% endif %}
                 </div>
             </div>
+            </div>
+
 
 
             <div id="description">
@@ -147,4 +151,17 @@
 
     </div>
     </div>
+</div>
+<style>
+select.select {
+    width: 300px;
+    background-color:#efefef;
+    color:666;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size:18px;
+    padding:10px;
+    outline: none;
+}
+</style>
 {% endblock %}

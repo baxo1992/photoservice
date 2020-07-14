@@ -3,6 +3,8 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from .models import News, Session
 from .forms import ReservationForm
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 # Widok dla strony Głównej
@@ -36,11 +38,13 @@ def reservation(request):
     return render(request, 'reservation.html', {'title': 'Rezerwacja'})
 
 
-class ReservationView(CreateView):
+class ReservationView(SuccessMessageMixin, CreateView):
     title = 'Rezerwacja'
     template_name = 'reservation.html'
     form_class = ReservationForm
-    success_url = reverse_lazy('reservation-succes')
+    success_url = reverse_lazy('reservation')
+    success_message = 'Termin został zarezerwowany pomyślnie'
+
 
 # Widok Pomyślnej rezerwacjii
 def reservation_succes(request):

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet"
               href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"
               integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous"/>
@@ -28,7 +28,9 @@
 </head>
 <body onload="zmienslajd()">
 <!-- Web Top + Nav -->
+<div class="sticky-top">
     <div id="wrapper">
+    <div id="nav-top">
         <div class="container top-nav">
             <div class="dropright">
                 {% if user.is_authenticated %}
@@ -58,42 +60,61 @@
               <div class="line3"></div>
             </div>
         </header>
-        <div class="container-fluid">
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                  <a class="nav-link menu" href="{% url 'sessionW' %}">Sesja Ślubna</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link menu" href="{% url 'sessionF' %}">Sesja Rodzinna</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link menu" href="{% url 'sessionP' %}">Sesja Ciążowa</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link menu" href="{% url 'about' %}">O mnie</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link menu" href="{% url 'reservation' %}">Rezerwacja</a>
-                </li>
-            </ul>
-        </div>
+        <ul class="nav top justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link menu" href="{% url 'sessionW' %}">Sesja Ślubna</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link menu" href="{% url 'sessionF' %}">Sesja Rodzinna</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link menu" href="{% url 'sessionP' %}">Sesja Ciążowa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link menu" href="{% url 'about' %}">O mnie</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link menu" href="{% url 'reservation' %}">Rezerwacja</a>
+            </li>
+        </ul>
     </div>
+</div>
+</div>
+
 <!-- END -->
 
 <!-- Django Messages System -->
-    {% if messages %}
-      {% for message in messages %}
-          {% if message.tags == 'success' %}
-              <script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:2000});</script>
-          {% elif message.tags == 'info' %}
-              <script>M.toast({html: "{{message}}", classes: 'blue rounded', displayLength:2000});</script>
-          {% elif message.tags == 'warning' %}
-              <script>M.toast({html: "{{message}}", classes: 'orange rounded', displayLength:10000});</script>
-          {% elif message.tags == 'error' %}
-              <script>M.toast({html: "{{message}}", classes: 'red rounded', displayLength:10000});</script>
-          {% endif %}
-      {% endfor %}
-    {% endif %}
+{#    {% if messages %}#}
+{#      {% for message in messages %}#}
+{#          {% if message.tags == 'success' %}#}
+{#              <script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:2000});</script>#}
+{#          {% elif message.tags == 'info' %}#}
+{#              <script>M.toast({html: "{{message}}", classes: 'blue rounded', displayLength:2000});</script>#}
+{#          {% elif message.tags == 'warning' %}#}
+{#              <script>M.toast({html: "{{message}}", classes: 'orange rounded', displayLength:10000});</script>#}
+{#          {% elif message.tags == 'error' %}#}
+{#              <script>M.toast({html: "{{message}}", classes: 'red rounded', displayLength:10000});</script>#}
+{#          {% endif %}#}
+{#      {% endfor %}#}
+{#    {% endif %}#}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-10 offset-1">
+        {% if messages %}
+            {% for message in messages %}
+                <div id="msg">
+                  <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                    {{ message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+</div>
 <!-- END -->
 
 <!-- Web Content Django -->
@@ -113,15 +134,14 @@
 <!-- END -->
 
 <!-- JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="{% static 'static/js/main.js' %}"></script>
-<!--    <script src="{% static 'static/js/download.js' %}"></script>-->
     <script src="{% static 'static/js/nav.js' %}"></script>
-    <script src="{% static 'static/js/scrollTo.js' %}"></script>
+{#    <script src="{% static 'static/js/scrollTo.js' %}"></script>#}
     <script src="{% static 'static/js/jquery.scrollTo.min.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -133,5 +153,19 @@
                 $("#id_reservation_date").datetimepicker({format: 'd/m/Y H:i',});
             });
         </script>
+    <script>
+        $(window).scroll(function() {
+            if($(this).scrollTop() > 100) {
+                $('#nav-top').addClass('opaque');
+            } else {
+                $('#nav-top').removeClass('opaque');
+            }
+            if($(this).scrollTop() > 100) {
+                $('.top').addClass('opaque');
+            } else {
+                $('.top').removeClass('opaque');
+            }
+        });
+    </script>
  </body>
 </html>
