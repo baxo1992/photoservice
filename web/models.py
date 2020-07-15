@@ -46,7 +46,7 @@ def pic_path(instance, filename):
 class Photos(models.Model):
     # Tabela (model) z wszystkimi zdjęciami, połączona z tabelą Reservation
     reservation = models.ForeignKey(Reservation, on_delete=models.DO_NOTHING)
-    user = models.ForeignKey(User, default=1, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     img = models.ImageField(upload_to=pic_path, blank=True, null=True)
     upload_date = models.DateTimeField(auto_now_add=True)
 
