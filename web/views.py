@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
-from .models import News, Session
+from .models import News, Photos
 from .forms import ReservationForm
-from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.views.generic import ListView
 
 
 # Widok dla strony Głównej
@@ -36,6 +36,16 @@ def about(request):
 # Widok Rezerwacja
 def reservation(request):
     return render(request, 'reservation.html', {'title': 'Rezerwacja'})
+
+
+class PhotoView(ListView):
+    model = Photos
+    context_object_name = 'model'
+    fields = ['img']
+    template_name = 'photogallery.html'
+
+    def get_queryset(self):
+        return Photos.objects.filter(user=self.request.user)
 
 
 class ReservationView(SuccessMessageMixin, CreateView):

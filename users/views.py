@@ -25,9 +25,9 @@ def register(request):
     return render(request, 'registration/registration.html', {'form': form})
 
 
-# def view_profile(request):
-#     args = {'user': request.user}
-#     return render(request, 'profile.html')
+def view_profile(request):
+    args = {'user': request.user}
+    return render(request, 'profile.html')
 
 
 def edit_profile(request):
@@ -40,7 +40,7 @@ def edit_profile(request):
             u_form.save()
             p_form.save()
             messages.success(request, f'Konto zostało zaktualizowane!')
-            return redirect('download_list')
+            return redirect('view_profile')
 
     else:
         u_form = UserUpdateForm(instance=request.user)
@@ -76,7 +76,7 @@ class DownloadView(ListView):
     model = UserFilesUpload
     context_object_name = 'down'
     fields = ['file']
-    template_name = 'profile.html'
+    template_name = 'download.html'
 
     def get_queryset(self):
         return UserFilesUpload.objects.filter(owner=self.request.user)

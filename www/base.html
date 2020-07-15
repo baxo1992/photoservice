@@ -38,7 +38,7 @@
                 Witaj, {{ user.username }}
                   </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'download_list' %}">Profil</a>
+                    <a class="dropdown-item" href="{% url 'view_profile' %}">Profil</a>
                         {% if user.is_staff %}
                             <a class="dropdown-item" href="/admin/">Admin Panel</a>
                             <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>

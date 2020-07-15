@@ -20,6 +20,6 @@ class ReservationForm(forms.ModelForm):
 
     class Meta:
         model = Reservation
-        fields = '__all__'
+        fields = ['user', 'first_name', 'last_name', 'session_type', 'reservation_date']
         # fields = ['session_type', 'reservation_date']
-        labels = {'session_type': 'Typ sesji', 'user': 'Użytkownik'}
+        labels = {'first_name': 'Imię', 'last_name': 'Nazwisko', 'session_type': 'Typ sesji', 'user': 'Użytkownik'}
