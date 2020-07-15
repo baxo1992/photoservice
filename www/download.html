@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                  <a href="{% url 'view_profile' %}" class="list-group-item list-group-item-action">Profil</a>
+                  <a href="{% url 'photo' %}" class="list-group-item list-group-item-action">Galeria</a>
+                  <a href="{% url 'download_list' %}" class="list-group-item list-group-item-action">Download</a>
+                </div>
+              </div>
+            <div class="col-md-8 offset-1">
+                <table class="table">
+                    <tr>
+                        <th>Własciciel</th>
+                        <th>Nazwa Sesji</th>
+                        <th>Data Dodania</th>
+                        <th>Pobierz</th>
+                    </tr>
+                    {% for download in down %}
+                         <tr>
+                             <td>
+                                {{ download.owner }}
+                             </td>
+                             <td>
+                                 {{ download.session_type }}
+                             </td>
+                             <td>
+                                 {{ download.upload_date }}
+                             </td>
+                             <td>
+                                 <a href="{{ download.file.url }}" download  class="btn btn-outline-primary">Pobierz Plik</a>
+                             </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
