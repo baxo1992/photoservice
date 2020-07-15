@@ -18,7 +18,9 @@ class Session(models.Model):
 
 class Reservation(models.Model):
     # Tabela (model) z wszystkimi rezerwacjami, połączona z konkretnym użytkownikiem oraz konkretnym typem sesji
-    user = models.ForeignKey(Profile, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(Profile, default=2, on_delete=models.DO_NOTHING)
+    first_name = models.CharField(max_length=32, null=True, blank=False)
+    last_name = models.CharField(max_length=32, null=True, blank=False)
     session_type = models.ForeignKey(Session, on_delete=models.DO_NOTHING)
     reservation_date = models.DateTimeField()
 

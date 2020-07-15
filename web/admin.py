@@ -14,7 +14,7 @@ class SessionAdmin(admin.ModelAdmin):
 
 @admin.register(Reservation)
 class ReservationAdmin(admin.ModelAdmin):
-    list_display = ('user', 'session_type', 'reservation_date')
+    list_display = ('first_name', 'last_name', 'session_type', 'reservation_date')
     list_filter = ('session_type', 'reservation_date')
     search_fields = ('session_type',)
 
