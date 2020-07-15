@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
-from .models import News, Session
+from .models import News
 from .forms import ReservationForm
-from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 
 

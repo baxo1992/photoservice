@@ -25,7 +25,7 @@ class Reservation(models.Model):
     reservation_date = models.DateTimeField()
 
     def __str__(self):
-        return f"{self.reservation_date.day}/{self.reservation_date.hour} - {self.user.first_name} {self.user.last_name}"
+        return f"{self.reservation_date.day}/{self.reservation_date.hour} - {self.first_name} {self.last_name}"
 
 
 class News(models.Model):
