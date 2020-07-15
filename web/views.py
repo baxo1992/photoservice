@@ -1,10 +1,10 @@
-from django.shortcuts import render
-from django.views.generic import CreateView
-from django.urls import reverse_lazy
-from .models import News, Photos
-from .forms import ReservationForm
 from django.contrib.messages.views import SuccessMessageMixin
-from django.views.generic import ListView
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView
+
+from .forms import ReservationForm
+from .models import News, Photos
 
 
 # Widok dla strony Głównej
