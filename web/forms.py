@@ -1,13 +1,9 @@
+from datetime import date
+
 from django import forms
 from django.core.exceptions import ValidationError
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Column, Row, Submit, Layout
 
-from users.models import Profile
 from web.models import Reservation
-from django.contrib.admin import widgets
-
-from datetime import date
 
 
 def past_date_field(value):

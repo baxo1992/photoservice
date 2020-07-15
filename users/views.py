@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from django.contrib.auth.forms import PasswordChangeForm
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
-from .models import UserFilesUpload
 
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .models import UserFilesUpload
 
 
 def register(request):
