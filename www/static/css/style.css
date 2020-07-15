@@ -230,10 +230,70 @@ input[type=submit]{
     font-size: 12px;
     text-align: center;
 }
+/* LOGOUT */
+#again{
+    text-align:center;
+    width:400px;
+    margin: auto auto;
+    border: 1px solid #cecece;
+    border-radius: 5%;
+    padding: 30px 30px;
+    margin-top: 50px;
 
+    -webkit-box-shadow: 3px 3px 30px 5px rgb(204,204,204,0.9);
+    -moz-box-shadow: 3px 3px 30px 30px 5px rgb(204,204,204,0.9);
+    box-shadow: 3px 3px 30px 5px rgb(204,204,204,0.9);
+
+}
+#again h2{
+    padding:10px 10px;
+}
+#again h3{
+    font-size: 16px;
+    opacity: 0.8;
+}
+#again p a{
+    text-decoration: none;
+}
+.container h1{
+    text-align: center;
+    font-family: 'Lemonada', cursive;
+    font-size: 30px;
+    padding: 20px 20px;
+}
+
+/* SOCIAL ICON */
+.social_icon{
+    width: 200px;
+    margin:auto auto;
+    margin-top: 100px;
+}
+.demo-icon{
+    text-decoration:none;
+    color:black;
+}
+
+/* BUTTON & SUBMIT & ALERT */
+
+.btn{
+    margin-top:50px;
+    margin-right:10px;
+
+}
+#v-pills-home a{
+    padding:10px 10px;
+    margin-left:15px;
+}
+.user{
+    margin-bottom:40px;
+}
+.alert{
+    text-align:center;
+}
 /* REGISTER */
 
 #container-register{
+    text-align:center;
     background-color:white;
     border-radius: 15px;
     padding:50px;
