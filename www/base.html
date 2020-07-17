@@ -33,28 +33,25 @@
 <div class="sticky-top">
     <div id="wrapper">
     <div id="nav-top">
-        <div class="container top-nav">
-            <div class="dropright">
-                {% if user.is_authenticated %}
-                <a class="dropdown dropdown-toggle menu" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Witaj, {{ user.username }}
-                  </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'view_profile' %}">Profil</a>
-                        {% if user.is_staff %}
-                            <a class="dropdown-item" href="/admin/">Admin Panel</a>
-                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-                        {% else %}
-                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-                        {% endif %}
-                  </div>
-                {% else %}
-                    <a class="menu" href="{% url 'register' %}">Rejestracja</a>
-                    <a class="menu" href="{% url 'login' %}">Login</a>
-                {% endif %}
-            </div>
-        </div>
         <header>
+            <div id="colapse">
+            {% if user.is_authenticated %}
+            <a class="collapsible">Witaj, {{ user.username }}</a>
+              <div class="content">
+                <ul class="">
+                  <a class="menu-col" href="{% url 'view_profile' %}">Profil</a>
+                    {% if user.is_staff %}
+                        <a class="menu-col" href="/admin/">Admin Panel</a>
+                        <a class="menu-col" href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                    <a class="menu-col" href="{% url 'logout' %}">Logout</a>
+                    {% endif %}
+                </ul>
+              {% else %}
+                    <a class="menu-col" href="{% url 'register' %}">Rejestracja</a>
+                    <a class="menu-col" href="{% url 'login' %}">Login</a>
+            {% endif %}
+            </div>
             <h1><a href="{% url 'home' %}">Photo Service</a></h1>
             <div class="burger">
               <div class="line1"></div>
@@ -82,23 +79,9 @@
     </div>
 </div>
 </div>
-
 <!-- END -->
 
 <!-- Django Messages System -->
-{#    {% if messages %}#}
-{#      {% for message in messages %}#}
-{#          {% if message.tags == 'success' %}#}
-{#              <script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:2000});</script>#}
-{#          {% elif message.tags == 'info' %}#}
-{#              <script>M.toast({html: "{{message}}", classes: 'blue rounded', displayLength:2000});</script>#}
-{#          {% elif message.tags == 'warning' %}#}
-{#              <script>M.toast({html: "{{message}}", classes: 'orange rounded', displayLength:10000});</script>#}
-{#          {% elif message.tags == 'error' %}#}
-{#              <script>M.toast({html: "{{message}}", classes: 'red rounded', displayLength:10000});</script>#}
-{#          {% endif %}#}
-{#      {% endfor %}#}
-{#    {% endif %}#}
 <div class="container mt-3">
     <div class="row">
         <div class="col-10 offset-1">
@@ -165,6 +148,23 @@
                 $('.top').removeClass('opaque');
             }
         });
+    </script>
+
+    <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
     </script>
  </body>
 </html>

@@ -43,7 +43,49 @@ body{
 header{
     padding: 15px 5px 5px 10px;
 }
+#colapse {
+    cursor: pointer;
+    text-align: end;
+    padding: 0px 30px;
+    color: #cecece;
+}
+#colapse.collapsible {
+    text-align: right;
+    cursor: pointer;
+    padding: 20px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
 
+  }
+
+  .active, .collapsible:hover {
+  }
+
+  .content {
+    text-align: right;
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+  .menu-col {
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    color: #cecece;
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    }
+
+    .menu-col:hover {
+        text-decoration: none;
+        color: black;
+    }
 .top-nav a {
     float: right;
     color:rgb(119, 119, 119);
@@ -347,7 +389,6 @@ input[type=email]:focus{
     margin:0;
     padding: 10px 15px 40px;
 }
-
 /* MOBILE & RESPONSIVE */
 @media only screen and (max-width: 768px) {
 
