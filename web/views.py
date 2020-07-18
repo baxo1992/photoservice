@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView
 
 from .forms import ReservationForm
-from .models import News, Photos
+from .models import News, Photos, Reservation
 
 
 # Widok dla strony Głównej
@@ -51,5 +51,12 @@ class ReservationView(SuccessMessageMixin, CreateView):
     form_class = ReservationForm
     success_url = reverse_lazy('reservation')
     success_message = 'Termin został zarezerwowany pomyślnie'
+    model = Reservation
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+        return super().form_valid(form)
 
 
