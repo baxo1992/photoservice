@@ -33,11 +33,7 @@ def about(request):
     return render(request, 'about.html', {'title': 'O mnie'})
 
 
-# Widok Rezerwacja
-def reservation(request):
-    return render(request, 'reservation.html', {'title': 'Rezerwacja'})
-
-
+# Galeria Zdjec uzytkownika
 class PhotoView(ListView):
     model = Photos
     context_object_name = 'model'
@@ -48,6 +44,7 @@ class PhotoView(ListView):
         return Photos.objects.filter(user=self.request.user)
 
 
+# Widok Rezerwacji
 class ReservationView(SuccessMessageMixin, CreateView):
     title = 'Rezerwacja'
     template_name = 'reservation.html'
@@ -56,6 +53,3 @@ class ReservationView(SuccessMessageMixin, CreateView):
     success_message = 'Termin został zarezerwowany pomyślnie'
 
 
-# Widok Pomyślnej rezerwacjii
-def reservation_succes(request):
-    return render(request, 'reservation-succes.html', {'title': 'Rezerwacja'})

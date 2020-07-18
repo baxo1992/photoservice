@@ -12,13 +12,20 @@
         </div>
         {% for photos in model %}
         <div class="col-md-4">
-            <div class="card mt-1">
-                <a href="{{ photos.img.url }}" data-lightbox="photos">
-                    <img src="{{ photos.img.url }}" width="300" height="300" class="card-img-top" alt="family1">
-                </a>
-            </div>
+        <input type="checkbox" id="photogallery">
+            <label for="{{ photos.img.url }}">
+            <a href="{{ photos.img.url }}" data-lightbox="photos">
+                <img src="{{ photos.img.url }}" width="300" height="300" class="card-img-top" alt="family1">
+            </a>
+            </label>
         </div>
         {% endfor %}
     </div>
 </div>
+    <script>
+    $("#photogallery").click(function () {
+    $(this).toggleClass("checked");
+    console.log('checked')
+});
+    </script>
 {% endblock %}
