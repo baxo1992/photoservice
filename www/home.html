@@ -8,17 +8,11 @@
       </div>
     </div>
   </div>
-    <div class="container">
+    <div id="container-profile">
         {% for post in posts %}
-      <div class="card text-center mt-3">
-          <div class="card-header">
-            News
-          </div>
-              <div class="card-body">
-                <h5 class="card-title">{{ post.title }}</h5>
-                <p class="card-text">{{ post.body }}</p>
-              </div>
-          <div class="card-footer text-muted">
+                <h3 class="text-center">{{ post.title }}</h3>
+                <p class="text-center">{{ post.body }}</p>
+          <div class="text-muted text-center">
             {{ post.publication_date }} by Photo Service
           </div>
         </div>
