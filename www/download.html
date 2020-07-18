@@ -30,7 +30,7 @@
                                  {{ download.upload_date }}
                              </td>
                              <td>
-                                 <a href="{{ download.file.url }}" download  class="btn btn-outline-primary">Pobierz Plik</a>
+                                 <a href="{{ download.file.url }}" download  class="btn btn-download btn-outline-primary">Pobierz Plik</a>
                              </td>
                         </tr>
                     {% endfor %}
@@ -38,4 +38,7 @@
             </div>
         </div>
     </div>
+    <style>
+
+    </style>
 {% endblock %}

@@ -322,16 +322,18 @@ input[type=submit]{
     margin-right:10px;
 
 }
-#v-pills-home a{
-    padding:10px 10px;
-    margin-left:15px;
+.btn-download {
+    margin:0px;
+    padding: 6px 12px;
 }
+
 .user{
     margin-bottom:40px;
 }
 .alert{
     text-align:center;
 }
+
 /* REGISTER */
 
 #container-register{
