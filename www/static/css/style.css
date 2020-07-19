@@ -42,14 +42,17 @@ body{
 }
 header{
     padding: 15px 5px 5px 10px;
+
 }
+
 #colapse {
     cursor: pointer;
     text-align: end;
     padding: 0px 30px;
     color: #cecece;
+
 }
-#colapse.collapsible {
+.collapsible {
     text-align: right;
     cursor: pointer;
     padding: 20px;
@@ -57,19 +60,18 @@ header{
     border: none;
     text-align: left;
     outline: none;
-
-  }
-
-  .active, .collapsible:hover {
-  }
+}
 
   .content {
-    text-align: right;
+    text-align:center;
+    width:200px;
     padding: 0 18px;
+    float:right;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
+
 
   .menu-col {
     font-size: 16px;
@@ -81,7 +83,10 @@ header{
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     }
-
+  .menu-col a{
+    padding:10px;
+    font-size:20px;
+  }
     .menu-col:hover {
         text-decoration: none;
         color: black;
@@ -102,6 +107,7 @@ header h1 {
     text-align: center;
     font-size: 46px;
     margin-top: 10px;
+
 }
 
 #wrapper header h1 a {
