@@ -22,7 +22,7 @@ class Reservation(models.Model):
     first_name = models.CharField(max_length=32, null=True, blank=False)
     last_name = models.CharField(max_length=32, null=True, blank=False)
     session_type = models.ForeignKey(Session, on_delete=models.DO_NOTHING)
-    reservation_date = models.DateTimeField()
+    reservation_date = models.DateTimeField(unique=True)
 
     def __str__(self):
         return f"{self.reservation_date} - {self.first_name} {self.last_name} / {self.session_type}"

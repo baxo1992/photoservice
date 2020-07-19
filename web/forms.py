@@ -18,7 +18,8 @@ class PastDateField(forms.DateTimeField):
 
 class ReservationForm(forms.ModelForm):
     reservation_date = PastDateField(input_formats=['%d/%m/%Y %H:%M'], label='Termin sesji',
-                                     help_text='(Format: dd/mm/yyyy HH:MM)')
+                                     help_text='(Format: dd/mm/yyyy HH:MM)', error_messages={
+            'unique': 'Wybrany przez ciebie termin jest już zarezerwowany. Wybierz inną datę lub godzinę.'})
 
     class Meta:
         model = Reservation
